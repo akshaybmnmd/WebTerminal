@@ -1,0 +1,43 @@
+setInterval(() => {
+  // heart beat 500
+  $(".indicator")[0].style.display =
+    $(".indicator")[0].style.display == "none" ? "" : "none";
+}, 500);
+
+setInterval(() => {
+  // heart beat 1000
+}, 1000);
+
+var cmd = "";
+var cmd = [];
+indicatorposotion = 0;
+
+$(document).keydown((e) => {
+  console.log(e.keyCode);
+  switch (e.keyCode) {
+    case 8:
+      cmd = cmd.substring(0, cmd.length - 1);
+      break;
+    case 13:
+      execute();
+      break;
+    default:
+  }
+  updateview();
+});
+
+$(document).keypress((e) => {
+  //   console.log(e.key);
+  if (e.keyCode != 13) {
+    cmd += e.key;
+  }
+  updateview();
+});
+
+execute = () => {
+  console.log("run");
+};
+
+updateview = () => {
+  $(".cmd")[0].innerText = cmd;
+};
